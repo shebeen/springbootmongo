@@ -12,7 +12,7 @@ public class Product {
 	}
 	
 	@Id
-	String id;
+	long id;
 	String productName;
 	String productDescription;
 	int productPrice;
@@ -34,10 +34,10 @@ public class Product {
 	public void setProductPrice(int productPrice) {
 		this.productPrice = productPrice;
 	}
-	public String getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 }

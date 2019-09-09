@@ -48,13 +48,13 @@ public class ProductController {
 	}
 
 	@GetMapping(value = "/edit/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Product> getUserById(@PathVariable("id") String id) {
+	public ResponseEntity<Product> getUserById(@PathVariable("id") long id) {
 		System.out.println("Fetching User with id " + id);
-		Optional<Product> product = productRepo.findById(id);
+		Product product = productRepo.findById(id);
 		if (product == null) {
 			return new ResponseEntity<Product>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<Product>(product, HttpStatus.OK);
+		return new ResponseEntity<Product>((Product) product, HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/all", headers = "Accept=application/json")
